@@ -1,5 +1,6 @@
 <script>
 import Modal from './common/CustomModal.vue'
+import { mapMutations} from "vuex";
 export default {
   data: function() {
     return {
@@ -8,11 +9,12 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['addOneItem']),
     addTodo() {
       if(this.newTodoItem === '') {
         this.showModal = true
       } else {
-        this.$store.commit('addOneItem',this.newTodoItem)
+        this.addOneItem(this.newTodoItem)
         this.clearInput()
       }
     },

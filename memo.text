@@ -7,3 +7,6 @@ getters: 연산된 state 값을 접근하는 computed
 mutations: state 값을 변경하는 이벤트 로직 methods
 actions: 비동기 처리 로직 async methods
 
+헬퍼
+computed -> mapState, mapComputed
+methods -> mapMutations, mapActions

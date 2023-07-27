@@ -21,6 +21,11 @@ export const store = new Vuex.Store({
         todoItems: storage.fetch(),
         count: 0
     },
+    getters: {
+        storedTodoItem(state) {
+            return state.todoItems.sort((p,n)=>n.item - p.item)
+        }
+    },
     mutations: {
         addOneItem(state, todoItem) {
             const obj = {completed: false, item: todoItem}
