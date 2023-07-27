@@ -1,0 +1,9 @@
+* vuex -> 상태관리 라이브러리,리액트 flux 패턴에서 기인
+flux -> 데이터 한방향흐름
+mvc 패턴의 문제점: 모델과 뷰가 많아지면 서로 스파게티처럼 엮여서 데이터 흐름 추적 어렵다
+
+state: 여러 컴포넌트에 공유되는 data
+getters: 연산된 state 값을 접근하는 computed
+mutations: state 값을 변경하는 이벤트 로직 methods
+actions: 비동기 처리 로직 async methods
+

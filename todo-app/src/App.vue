@@ -1,14 +1,11 @@
 <template>
   <div id="app">
+    <div>{{this.$store.state.count}}</div>
+    <div @click="addCount">click</div>
     <TodoHeader></TodoHeader>
-    <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
-    <TodoList
-        v-bind:propsData="todoItems"
-        v-on:removeItem="removeOneItem"
-        v-on:toggleItem="toggleOneItem"
-    >
-    </TodoList>
-    <TodoFooter v-on:clearItem="clearTodo"></TodoFooter>
+    <TodoInput></TodoInput>
+    <TodoList></TodoList>
+    <TodoFooter></TodoFooter>
   </div>
 </template>
 
@@ -20,46 +17,17 @@ import TodoFooter from '../src/components/TodoFooter.vue'
 
 
 export default {
+  methods: {
+    addCount() {
+      this.$store.dispatch('delayedAddCount')
+    }
+  },
   components: {
     'TodoHeader': TodoHeader,
     'TodoInput': TodoInput,
     'TodoList': TodoList,
     'TodoFooter': TodoFooter,
   },
-  data() {
-    return {
-      todoItems: []
-    }
-  },
-  created() {
-    if(localStorage.length > 0) {
-      for(let idx = 0; idx < localStorage.length; idx++) {
-        const item = localStorage.getItem(localStorage.key(idx))
-        this.todoItems.push(JSON.parse(item))
-      }
-    }
-  },
-  methods: {
-    addOneItem(todoItem) {
-      const obj = {completed: false, item: todoItem}
-      localStorage.setItem(String(todoItem), JSON.stringify(obj))
-      this.todoItems.push(obj)
-    },
-    removeOneItem(todoItem,index) {
-      localStorage.removeItem(todoItem.item)
-      this.todoItems.splice(index,1)
-    },
-    toggleOneItem(todoItem,index) {
-      console.log(todoItem, index)
-      this.todoItems[index].completed = !todoItem.completed
-      localStorage.removeItem(todoItem.item)
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
-    },
-    clearTodo() {
-      localStorage.clear()
-      this.todoItems = []
-    }
-  }
 }
 </script>
 

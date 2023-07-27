@@ -1,26 +1,26 @@
 <script>
 export default {
-  props: ['propsData'],
   methods: {
     removeTodo(todoItem, index) {
-      this.$emit('removeItem', todoItem,index)
+      this.$store.commit('removeOneItem',{todoItem,index})
     },
     toggleComplete(todoItem, index) {
-      this.$emit('toggleItem', todoItem,index)
+      this.$store.commit('toggleOneItem',{todoItem,index})
     }
   }
 }
+
 </script>
 
 <template>
   <div>
     <transition-group name="list" tag="ul">
-      <li v-for="(todoItem, index) in propsData" v-bind:key="index" class="shadow">
-        <span class="checkBtn" v-on:click="toggleComplete(todoItem, index)">
+      <li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="index" class="shadow">
+        <span class="checkBtn" @click="toggleComplete(todoItem, index)">
           <i class="fa-solid fa-check" v-bind:class="{checkBtnComplete: todoItem.completed}"></i>
         </span>
         <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <span class="removeBtn" @click="removeTodo(todoItem, index)">
           <i class="fa-solid fa-trash"></i>
         </span>
       </li>
