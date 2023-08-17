@@ -16,6 +16,7 @@ import TodoList from '../src/components/TodoList.vue'
 import TodoFooter from '../src/components/TodoFooter.vue'
 
 console.log('commit1')
+console.log('rollback-test1')
 export default {
   methods: {
     addCount() {
