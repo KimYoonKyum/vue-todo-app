@@ -14,7 +14,9 @@ import TodoHeader from '../src/components/TodoHeader.vue'
 import TodoInput from '../src/components/TodoInput.vue'
 import TodoList from '../src/components/TodoList.vue'
 import TodoFooter from '../src/components/TodoFooter.vue'
-
+console.log('test1');
+console.log('test2');
+console.log('test3');
 export default {
   methods: {
     addCount() {
