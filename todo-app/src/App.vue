@@ -22,6 +22,11 @@ console.log('rollback-test3')
 
 
 console.log('modify-rollback-commit')
+
+console.log('cherry-test-commit')
+
+
+console.log('cccccccccccc')
 export default {
   methods: {
     addCount() {
