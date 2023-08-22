@@ -27,6 +27,10 @@ console.log('cherry-test-commit')
 
 
 console.log('cccccccccccc')
+
+
+
+console.log('cherry-pick-test222222')
 export default {
   methods: {
     addCount() {
