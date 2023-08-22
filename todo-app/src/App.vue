@@ -32,6 +32,8 @@ console.log('cccccccccccc')
 
 console.log('cherry-pick-test222222-modify')
 console.log('cherry-pick-test222222')
+
+console.log('main')
 export default {
   methods: {
     addCount() {
